@@ -22,17 +22,12 @@ import org.springframework.security.web.authentication.UsernamePasswordAuthentic
 public class SecurityConfig extends WebSecurityConfigurerAdapter {
     private final UserDetailsService userDetailsService;
     private final JwtFliter jwtFliter;
-    private final String[] ALLOWED_ENDPOINTS = {"/swagger-ui/**", "/login/**", "/register/**"};
+    private final String[] ALLOWED_ENDPOINTS = {"/v3/api-docs/**", "/swagger-ui/**", "/login/**", "/register/**"};
 
 
     public SecurityConfig(UserDetailsService userDetailsService, JwtFliter jwtFliter) {
         this.userDetailsService = userDetailsService;
         this.jwtFliter = jwtFliter;
-    }
-
-    @Override
-    public void configure(WebSecurity web) throws Exception {
-        web.ignoring().antMatchers("/swagger-ui/**", " /v3/api-docs/**");
     }
 
     @Override
