@@ -1,9 +1,7 @@
 package com.bm.controller;
 
-import com.bm.dto.LoginResponse;
 import com.bm.entity.LoginRequest;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -24,12 +22,6 @@ public class LoginController {
 	
 	@PostMapping("/")
 	public ResponseEntity<?> login(@RequestBody LoginRequest loginRequest) throws Exception {
-		LoginResponse loginResponse = loginService.login(loginRequest);
-
-		if (loginResponse != null) {
-			return new ResponseEntity<>(loginResponse, HttpStatus.OK);
-		}
-
-		return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+		return loginService.login(loginRequest);
 	}
 }

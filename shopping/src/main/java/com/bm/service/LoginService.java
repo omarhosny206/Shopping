@@ -4,8 +4,13 @@ import com.bm.dto.LoginResponse;
 import com.bm.entity.CustomUserDetails;
 import com.bm.entity.LoginRequest;
 import com.bm.entity.User;
+import com.bm.exception.ErrorResponse;
+import com.bm.exception.Errors;
 import com.bm.util.JwtUtil;
 import lombok.extern.slf4j.Slf4j;
+
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.BadCredentialsException;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
@@ -25,7 +30,7 @@ public class LoginService {
 		this.jwtUtil = jwtUtil;
 	}
 
-	public LoginResponse login(LoginRequest loginRequest) throws Exception {
+	public ResponseEntity<?> login(LoginRequest loginRequest) throws Exception {
 		log.info("making log in for user with username={}", loginRequest.getEmail());
 		String userName = loginRequest.getEmail();
 		String password = loginRequest.getPassword();
@@ -36,7 +41,7 @@ public class LoginService {
 					password
 			));
 		} catch (BadCredentialsException e) {
-			throw new Exception("Incorrect username or password", e);
+			return new ResponseEntity<>(new ErrorResponse(Errors.UserNotFound.getErrorMessage()), HttpStatus.NOT_FOUND);
 		}
 
 		log.info("authenticating and generating JWT for user with username={}", loginRequest.getEmail());
@@ -44,6 +49,6 @@ public class LoginService {
 		User user = customUserDetails.getUser();
 		String jwt = jwtUtil.generateToken(customUserDetails);
 
-		return new LoginResponse(user.getName(), user.getEmail(), jwt);
+		return new ResponseEntity<>(new LoginResponse(user.getName(), user.getEmail(), jwt), HttpStatus.OK);
 	}
 }
