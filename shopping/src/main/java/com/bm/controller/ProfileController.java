@@ -1,25 +1,22 @@
 package com.bm.controller;
 
 import com.bm.entity.UpdateRequest;
-import com.bm.entity.User;
-import com.bm.service.UserService;
-import org.springframework.beans.BeanUtils;
+import com.bm.service.ProfileService;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping("/profile")
 public class ProfileController {
-    private final UserService userService;
+    private final ProfileService profileService;
 
-    public ProfileController(UserService userService) {
-        this.userService = userService;
+    public ProfileController(ProfileService profileService) {
+        this.profileService = profileService;
     }
 
+
     @PutMapping("/")
-    public void getById(@RequestBody UpdateRequest updateRequest) {
-        User user = userService.getByEmail(updateRequest.getEmail());
-        BeanUtils.copyProperties(updateRequest, user);
-        userService.update(user);
+    public ResponseEntity<?> update(@RequestBody UpdateRequest updateRequest) {
+        return profileService.update(updateRequest);
     }
 }

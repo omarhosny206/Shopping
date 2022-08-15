@@ -13,7 +13,7 @@ import com.bm.service.LoginService;
 @RestController
 @RequestMapping("/login")
 public class LoginController {
-	private LoginService loginService;
+	private final LoginService loginService;
 	
 	@Autowired
 	public LoginController(LoginService loginService) {
