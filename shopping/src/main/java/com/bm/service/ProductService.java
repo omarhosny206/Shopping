@@ -1,8 +1,10 @@
 package com.bm.service;
 
+import com.bm.dto.ProductDto;
 import com.bm.entity.Category;
 import com.bm.entity.Product;
 import com.bm.repository.ProductRepository;
+import org.springframework.beans.BeanUtils;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -17,7 +19,12 @@ public class ProductService {
         this.categoryService = categoryService;
     }
 
-    public void save(Product product) {
+    public void save(ProductDto productDto) {
+        Product product = new Product();
+        BeanUtils.copyProperties(productDto, product);
+
+        Category category = categoryService.findByName(productDto.getCategoryName());
+        product.setCategory(category);
         productRepository.save(product);
     }
 
@@ -33,5 +40,9 @@ public class ProductService {
 
     public Product getById(Long id) {
         return productRepository.findById(id).orElse(null);
+    }
+
+    public void deletyById(Long id) {
+        productRepository.deleteById(id);
     }
 }

@@ -1,5 +1,6 @@
 package com.bm.controller;
 
+import com.bm.dto.ProductDto;
 import com.bm.entity.Product;
 import com.bm.service.ProductService;
 import org.springframework.http.HttpStatus;
@@ -17,7 +18,7 @@ public class ProductController {
         this.productService = productService;
     }
 
-    @GetMapping("/")
+    @GetMapping
     public ResponseEntity<?> getAllByCategoryName(@RequestParam String category) {
         List<Product> products = productService.getAllByCategory(category);
 
@@ -32,8 +33,14 @@ public class ProductController {
     }
 
     @PostMapping("/")
-    public ResponseEntity<String> save(@RequestBody Product product) {
-        productService.save(product);
+    public ResponseEntity<String> save(@RequestBody ProductDto productDto) {
+        productService.save(productDto);
+        return new ResponseEntity<>(HttpStatus.OK);
+    }
+
+    @DeleteMapping("")
+    public ResponseEntity<String> deleteById(@RequestParam Long id) {
+        productService.deletyById(id);
         return new ResponseEntity<>(HttpStatus.OK);
     }
 }

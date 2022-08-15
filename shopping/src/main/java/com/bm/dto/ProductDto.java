@@ -1,5 +1,6 @@
 package com.bm.dto;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -15,4 +16,7 @@ public class ProductDto {
     private String description;
     private double price;
     private String image;
+
+    @JsonProperty("category_name")
+    private String categoryName;
 }
