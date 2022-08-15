@@ -22,8 +22,11 @@ public class ProfileService {
     }
 
 
-    public ResponseEntity<?> update(UpdateRequest updateRequest) {
-        String jwt = updateRequest.getToken();
+    public ResponseEntity<?> update(UpdateRequest updateRequest, String header) {
+        if(header == null || !header.startsWith("Bearer"))
+            return new ResponseEntity<>(new ErrorMessage("Bad Request"), HttpStatus.BAD_REQUEST);
+
+        String jwt = header.substring(7);
         String email= jwtUtil.getUserName(jwt);
         User user = userService.getByEmail(email);
 

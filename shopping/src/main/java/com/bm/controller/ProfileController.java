@@ -3,6 +3,7 @@ package com.bm.controller;
 import com.bm.entity.UpdateRequest;
 import com.bm.service.ProfileService;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
@@ -16,7 +17,8 @@ public class ProfileController {
 
 
     @PutMapping("/")
-    public ResponseEntity<?> update(@RequestBody UpdateRequest updateRequest) {
-        return profileService.update(updateRequest);
+    public ResponseEntity<?> update(@RequestBody UpdateRequest updateRequest, @RequestHeader("Authorization") String header) {
+        System.out.println(header);
+        return profileService.update(updateRequest, header);
     }
 }

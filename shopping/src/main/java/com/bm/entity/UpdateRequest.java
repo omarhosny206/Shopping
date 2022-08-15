@@ -10,5 +10,4 @@ import lombok.NoArgsConstructor;
 public class UpdateRequest {
     private String name;
     private String password;
-    private String token;
 }
