@@ -22,7 +22,7 @@ public class ProductController {
     public ResponseEntity<?> getAllByCategoryName(@RequestParam String category) {
         List<Product> products = productService.getAllByCategory(category);
 
-        if(products != null)
+        if (products != null)
             return new ResponseEntity<>(products, HttpStatus.OK);
 
         return new ResponseEntity<>(HttpStatus.NOT_FOUND);
@@ -34,13 +34,11 @@ public class ProductController {
 
     @PostMapping("/")
     public ResponseEntity<String> save(@RequestBody ProductDto productDto) {
-        productService.save(productDto);
-        return new ResponseEntity<>(HttpStatus.OK);
+        return new ResponseEntity<>(productService.save(productDto), HttpStatus.OK);
     }
 
     @DeleteMapping("")
     public ResponseEntity<String> deleteById(@RequestParam Long id) {
-        productService.deletyById(id);
-        return new ResponseEntity<>(HttpStatus.OK);
+        return new ResponseEntity<>(productService.deletyById(id), HttpStatus.OK);
     }
 }

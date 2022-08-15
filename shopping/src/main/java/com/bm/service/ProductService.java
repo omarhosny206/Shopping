@@ -19,13 +19,14 @@ public class ProductService {
         this.categoryService = categoryService;
     }
 
-    public void save(ProductDto productDto) {
+    public String save(ProductDto productDto) {
         Product product = new Product();
         BeanUtils.copyProperties(productDto, product);
 
         Category category = categoryService.findByName(productDto.getCategoryName());
         product.setCategory(category);
         productRepository.save(product);
+        return "Added successfully";
     }
 
 
@@ -42,7 +43,8 @@ public class ProductService {
         return productRepository.findById(id).orElse(null);
     }
 
-    public void deletyById(Long id) {
+    public String deletyById(Long id) {
         productRepository.deleteById(id);
+        return "Deleted successfully";
     }
 }
