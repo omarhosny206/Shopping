@@ -7,6 +7,7 @@ import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping("/register")
+@CrossOrigin(origins = "*", allowedHeaders = "*", maxAge = 3600)
 public class RegistrationController {
     private final RegistrationService registrationService;
 

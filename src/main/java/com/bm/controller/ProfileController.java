@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping("/profile")
+@CrossOrigin(origins = "*", allowedHeaders = "*", maxAge = 3600)
 public class ProfileController {
     private final ProfileService profileService;
 
