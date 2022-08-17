@@ -33,7 +33,7 @@ public class RegistrationServiceImpl implements RegistrationService {
     		return new ResponseEntity<>(new ErrorResponse(Errors.EmailNotUnique.getErrorMessage()), HttpStatus.BAD_REQUEST);
     	}
 
-        log.error("User registered successfully");
+        log.info("User registered successfully");
         user.setPassword(passwordEncoder.encode(user.getPassword()));
         userService.save(user);
         return new ResponseEntity<>("Registered Successfully", HttpStatus.OK);
