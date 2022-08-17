@@ -105,11 +105,11 @@
 - Adding OAuth 2.0.
 - Signup with Google, Facebook and other platforms.
 
-----
-# OR
-
 
 # API Documentation 📝 via  [|Link|](https://shopping-app-bm.herokuapp.com/swagger-ui/index.html#/)
+
+
+# *OR*
 
 # **API Documentation**
 
