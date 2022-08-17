@@ -101,7 +101,7 @@
 
 
 
-## **Features to add in the future 💭** 
+# **Features to add in the future 💭** 
 - Adding OAuth 2.0.
 - Signup with Google, Facebook and other platforms.
 
