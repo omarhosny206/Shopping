@@ -33,7 +33,7 @@ public class LoginServiceImpl implements LoginService {
 
 	@Override
     public ResponseEntity<?> login(LoginRequest loginRequest) throws Exception {
-		log.info("making log in for user with username={}", loginRequest.getEmail());
+		log.info("Trying to log-in for user with username={}", loginRequest.getEmail());
 		String userName = loginRequest.getEmail();
 		String password = loginRequest.getPassword();
 
@@ -43,14 +43,17 @@ public class LoginServiceImpl implements LoginService {
 					password
 			));
 		} catch (BadCredentialsException e) {
+			log.error("Bad Credentials, Incorrect email or password");
 			return new ResponseEntity<>(new ErrorResponse(Errors.UserNotFound.getErrorMessage()), HttpStatus.NOT_FOUND);
 		}
 
-		log.info("authenticating and generating JWT for user with username={}", loginRequest.getEmail());
+		log.info("Authenticating and generating JWT for user with username={}", loginRequest.getEmail());
 		CustomUserDetails customUserDetails = (CustomUserDetails)userDetailsService.loadUserByUsername(userName);
 		User user = customUserDetails.getUser();
+		log.info("Generating JWT for Authorization");
 		String jwt = jwtUtil.generateToken(customUserDetails);
 
+		log.info("Logged in successfully");
 		return new ResponseEntity<>(new LoginResponse(user.getName(), user.getEmail(), jwt), HttpStatus.OK);
 	}
 }
