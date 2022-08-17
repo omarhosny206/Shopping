@@ -18,14 +18,14 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
 @Component
-public class JwtFliter extends OncePerRequestFilter {
+public class JwtFilter extends OncePerRequestFilter {
     private final UserDetailsService userDetailsService;
     private final JwtUtil jwtUtil;
 
     @Value("${auth.jwt.header}")
     private String TOKEN_HEADER;
 
-    public JwtFliter(UserDetailsService userDetailsService, JwtUtil jwtUtil) {
+    public JwtFilter(UserDetailsService userDetailsService, JwtUtil jwtUtil) {
         this.userDetailsService = userDetailsService;
         this.jwtUtil = jwtUtil;
     }
