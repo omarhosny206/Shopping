@@ -12,6 +12,7 @@
 - Ability to serve products with different categories, our app is scalable.
 - Email and Password based Authentication.
 - Authorization was done using JWT(Json Web Token).
+- Error and Exception handling.  
 
 ```
 ├── mvnw
