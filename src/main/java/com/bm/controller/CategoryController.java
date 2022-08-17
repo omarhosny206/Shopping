@@ -5,10 +5,7 @@ import com.bm.service.CategoryService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.CrossOrigin;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping("/categories")
@@ -22,7 +19,7 @@ public class CategoryController {
     }
 
     @PostMapping("/")
-    public ResponseEntity<String> save(Category category) {
+    public ResponseEntity<String> save(@RequestBody Category category) {
         log.info("Adding category with name={}", category.getName());
         return new ResponseEntity<>(categoryService.save(category), HttpStatus.OK);
     }

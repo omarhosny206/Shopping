@@ -1,6 +1,7 @@
 package com.bm.controller;
 
 import com.bm.dto.ProductDto;
+import com.bm.entity.Category;
 import com.bm.entity.Product;
 import com.bm.exception.ErrorResponse;
 import com.bm.exception.Errors;
@@ -49,7 +50,7 @@ public class ProductController {
         return new ResponseEntity<>(productService.save(productDto), HttpStatus.OK);
     }
 
-    @DeleteMapping("/")
+    @DeleteMapping("")
     public ResponseEntity<String> deleteById(@RequestParam Long id) {
         log.info("Deleting a product with id={}", id);
         return new ResponseEntity<>(productService.deleteById(id), HttpStatus.OK);
