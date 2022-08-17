@@ -71,11 +71,11 @@
     │       └── application.properties
 ```
 
-# **Database Design**
+# **Database Design 🖊️**
 
 ![WhatsApp Image 2022-08-17 at 12 15 59 PM](https://user-images.githubusercontent.com/58389695/185098824-d1345a71-d9cc-47cc-841e-24e5dbf58f82.jpeg)
 
-# **Tech Stack**
+# **Tech Stack ⚡**
 
 - Programming Language: Java 8
 - Backend Framework: Spring Boot v2.7.2
@@ -101,9 +101,9 @@
 
 
 
-## **Features to add in the future** 🚀
+## **Features to add in the future 💭** 
 - Adding OAuth 2.0.
 - Signup with Google, Facebook and other platforms.
 
 
-# API Documentation via [|Link|](https://shopping-app-bm.herokuapp.com/swagger-ui/index.html#/)
+# API Documentation 📝 via  [|Link|](https://shopping-app-bm.herokuapp.com/swagger-ui/index.html#/)
