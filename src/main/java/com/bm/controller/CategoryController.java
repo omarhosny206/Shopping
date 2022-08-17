@@ -2,6 +2,7 @@ package com.bm.controller;
 
 import com.bm.entity.Category;
 import com.bm.service.CategoryService;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
@@ -12,6 +13,7 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 @RequestMapping("/categories")
 @CrossOrigin(origins = "*", allowedHeaders = "*", maxAge = 3600)
+@Slf4j
 public class CategoryController {
     private final CategoryService categoryService;
 
@@ -21,6 +23,7 @@ public class CategoryController {
 
     @PostMapping("/")
     public ResponseEntity<String> save(Category category) {
+        log.info("Adding category with name={}", category.getName());
         return new ResponseEntity<>(categoryService.save(category), HttpStatus.OK);
     }
 }
