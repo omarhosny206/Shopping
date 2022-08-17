@@ -1,9 +1,8 @@
 package com.bm.controller;
 
-import com.bm.entity.UpdateRequest;
+import com.bm.dto.UpdateRequest;
 import com.bm.service.ProfileService;
 import org.springframework.http.ResponseEntity;
-import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.web.bind.annotation.*;
 
 @RestController

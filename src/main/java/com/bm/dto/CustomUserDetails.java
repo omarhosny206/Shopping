@@ -1,5 +1,6 @@
-package com.bm.entity;
+package com.bm.dto;
 
+import com.bm.entity.User;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
