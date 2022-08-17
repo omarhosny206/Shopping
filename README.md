@@ -106,4 +106,4 @@
 - Signup with Google, Facebook and other platforms.
 
 
-# API Documentation 📝 via  [|Link1|](https://shopping-app-bm.herokuapp.com/swagger-ui/index.html#/) *OR* [|Link2|](https://youthful-burn-22f.notion.site/API-Documentation-48b32853a1ba46b0ba285fe216c0d4b6)
+# API Documentation 📝 via  [|Swagger|](https://shopping-app-bm.herokuapp.com/swagger-ui/index.html#/) *OR* [|Notion|](https://youthful-burn-22f.notion.site/API-Documentation-48b32853a1ba46b0ba285fe216c0d4b6)
