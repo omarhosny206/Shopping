@@ -105,5 +105,202 @@
 - Adding OAuth 2.0.
 - Signup with Google, Facebook and other platforms.
 
+----
+# OR
+
 
 # API Documentation 📝 via  [|Link|](https://shopping-app-bm.herokuapp.com/swagger-ui/index.html#/)
+
+# **API Documentation**
+
+# `Registeration`
+
+```json
+https://shopping-app-bm.herokuapp.com/register/
+
+Request
+{
+    "name":"",
+    "email":"",
+    "password":""
+}
+
+Response
+200 OK
+Registered Successfully
+
+400 Bad Request
+{
+    "errorMessage": "Email already taken, please choose another one"
+}
+```
+
+# `Login`
+
+```json
+https: https://shopping-app-bm.herokuapp.com/login/
+
+Request
+{
+    "email":"",
+    "password":""
+}
+
+Response
+200 OK
+{
+  "name": "",
+  "email": "",
+  "token": ""
+}
+
+404 Not Found
+{
+  "errorMessage": "Incorrect email or password"
+}
+```
+
+# `Get All Products by Category`
+
+```json
+https://shopping-app-bm.herokuapp.com/products?category="category_name"
+
+Request Headers
+{
+   'Authorization' : 'Bearer ' + token
+}
+
+Response
+200 OK
+[
+	{
+    product1
+	},
+	{
+    product2
+	},
+	.
+	.
+	.
+]
+
+403 Forbidden
+NOTHING IN RESPONSE
+```
+
+# `Add Product`
+
+```json
+https://shopping-app-bm.herokuapp.com/products/
+
+Request 
+{
+  "name": "",
+  "description": "",
+  "price": ,
+  "image": "",
+  "category_name" : ""
+}
+Request Headers
+{
+   'Authorization' : 'Bearer ' + token
+}
+
+Response
+200 OK
+Added successfully
+
+403 Forbidden
+NOTHING IN RESPONSE
+```
+
+# `Delete Product`
+
+```json
+https://shopping-app-bm.herokuapp.com/products/
+Request 
+{
+  "name": "",
+  "description": "",
+  "price": ,
+  "image": "",
+  "category_name" : ""
+}
+Request Headers
+{
+   'Authorization' : 'Bearer ' + token
+}
+
+Response
+200 OK
+Deleted successfully
+
+403 Forbidden
+NOTHING IN RESPONSE
+```
+
+# `Get Product by id`
+
+```json
+https://shopping-app-bm.herokuapp.com/products/?id="product_id"
+Request Headers
+{
+   'Authorization' : 'Bearer ' + token
+}
+
+Response
+200 OK
+{
+  "name": "",
+  "description": "",
+  "price": ,
+  "image": "",
+  "category_name" : ""
+}
+
+403 Forbidden
+NOTHING IN RESPONSE
+```
+
+# `Update Profile`
+
+```json
+https://shopping-app-bm.herokuapp.com/profile/
+Request
+{
+    "name": "",
+    "password": ""
+}
+Request Headers
+{
+   'Authorization' : 'Bearer ' + token
+}
+
+Response
+200 OK
+Updated successfully
+
+403 Forbidden
+NOTHING IN RESPONSE
+```
+
+# `Add Category`
+
+```json
+https://shopping-app-bm.herokuapp.com/categories/
+Request
+{
+    "name":""
+}
+Request Headers
+{
+   'Authorization' : 'Bearer ' + token
+}
+
+Response
+200 OK
+Added successfully
+
+403 Forbidden
+NOTHING IN RESPONSE
+```
