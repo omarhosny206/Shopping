@@ -18,7 +18,6 @@ public class ProfileController {
 
     @PutMapping("/")
     public ResponseEntity<?> update(@RequestBody UpdateRequest updateRequest, @RequestHeader("Authorization") String header) {
-        System.out.println(header);
         return profileService.update(updateRequest, header);
     }
 }
