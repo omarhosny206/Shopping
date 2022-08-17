@@ -2,6 +2,8 @@ package com.bm.controller;
 
 import com.bm.dto.ProductDto;
 import com.bm.entity.Product;
+import com.bm.exception.ErrorResponse;
+import com.bm.exception.Errors;
 import com.bm.service.ProductService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.HttpStatus;
@@ -32,7 +34,7 @@ public class ProductController {
         }
 
         log.error("not found");
-        return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+        return new ResponseEntity<>(new ErrorResponse(Errors.CategoryNotFound.getErrorMessage()), HttpStatus.NOT_FOUND);
     }
 
     @GetMapping("/")

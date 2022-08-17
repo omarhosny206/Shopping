@@ -2,8 +2,9 @@ package com.bm.exception;
 
 public enum Errors {
 	UserNotFound("Incorrect email or password"),
-	EmailNotUnique("Email already taken, please choose another one");
-	
+	EmailNotUnique("Email already taken, please choose another one"),
+	CategoryNotFound("Category not found");
+
 	private final String errorMessage;
 
 	private Errors(String errorMessage) {
