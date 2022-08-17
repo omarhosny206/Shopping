@@ -49,6 +49,6 @@ public class ProductController {
     @DeleteMapping("")
     public ResponseEntity<String> deleteById(@RequestParam Long id) {
         log.info("Deleting a product with id={}", id);
-        return new ResponseEntity<>(productService.deletyById(id), HttpStatus.OK);
+        return new ResponseEntity<>(productService.deleteById(id), HttpStatus.OK);
     }
 }
