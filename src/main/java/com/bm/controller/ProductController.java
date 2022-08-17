@@ -35,7 +35,8 @@ public class ProductController {
         return new ResponseEntity<>(HttpStatus.NOT_FOUND);
     }
 
-    public Product getById(Long id) {
+    @GetMapping("/")
+    public Product getById(@RequestParam Long id) {
         log.info("Getting product with id={}", id);
         return productService.getById(id);
     }
@@ -46,7 +47,7 @@ public class ProductController {
         return new ResponseEntity<>(productService.save(productDto), HttpStatus.OK);
     }
 
-    @DeleteMapping("")
+    @DeleteMapping("/")
     public ResponseEntity<String> deleteById(@RequestParam Long id) {
         log.info("Deleting a product with id={}", id);
         return new ResponseEntity<>(productService.deleteById(id), HttpStatus.OK);
